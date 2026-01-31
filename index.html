@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Prismatrix VPN — Быстрый и безопасный</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -18,7 +18,6 @@
       --text: #f0f2ff;
       --muted: #a0a8c0;
       --radius: 24px;
-      --radius-sm: 16px;
       --gap: clamp(16px, 4.5vw, 28px);
     }
 
@@ -28,13 +27,22 @@
       padding: 0;
     }
 
+    html, body {
+      height: 100dvh;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
     body {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
       min-height: 100dvh;
-      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
     }
 
     body::before {
@@ -56,7 +64,7 @@
 
     header {
       text-align: center;
-      padding: clamp(60px, 15vw, 110px) 5vw clamp(48px, 13vw, 80px);
+      padding: clamp(50px, 12vw, 100px) 5vw clamp(40px, 10vw, 70px);
     }
 
     .logo-wrap {
@@ -96,7 +104,7 @@
     }
 
     .buttons {
-      margin-top: clamp(36px, 9vw, 56px);
+      margin-top: clamp(32px, 8vw, 50px);
       display: flex;
       flex-wrap: wrap;
       gap: clamp(16px, 4.5vw, 24px);
@@ -163,16 +171,18 @@
     }
 
     main {
+      flex: 1;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 clamp(18px, 5.5vw, 36px);
+      padding: 0 clamp(18px, 5.5vw, 36px) clamp(18px, 5.5vw, 36px) clamp(40px, 8vw, 60px);
+      width: 100%;
     }
 
     h2 {
       font-size: clamp(28px, 8vw, 44px);
       font-weight: 700;
       text-align: center;
-      margin: clamp(64px, 13vw, 110px) 0 clamp(36px, 9vw, 52px);
+      margin: clamp(50px, 10vw, 90px) 0 clamp(30px, 7vw, 45px);
     }
 
     .devices {
@@ -213,7 +223,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: var(--gap);
-      margin-top: clamp(64px, 13vw, 110px);
+      margin-top: clamp(60px, 12vw, 100px);
     }
 
     .feature {
@@ -240,7 +250,7 @@
     }
 
     .faq {
-      margin: clamp(90px, 16vw, 140px) 0;
+      margin: clamp(80px, 15vw, 130px) 0;
     }
 
     .faq-item {
@@ -360,9 +370,10 @@
 
     footer {
       text-align: center;
-      padding: clamp(60px, 12vw, 100px) 20px 60px;
+      padding: clamp(40px, 8vw, 70px) 20px clamp(30px, 6vw, 50px);
       color: var(--muted);
       font-size: clamp(14px, 3.5vw, 16px);
+      margin-top: auto;
     }
 
     @media (max-width: 720px) {
@@ -516,30 +527,10 @@ const appLink = document.getElementById('appLink');
 const textLink = document.getElementById('textLink');
 
 const instructions = {
-  pc: {
-    title: "Windows / macOS / Linux",
-    video: "pc.mp4",
-    app: "https://github.com/2dust/v2rayN/releases",
-    text: "https://github.com/recobalt/prismatix-instructions/blob/main/winlinmac.md"
-  },
-  android: {
-    title: "Android",
-    video: "android.mp4",
-    app: "https://play.google.com/store/apps/details?id=com.v2raytun.android&hl=ru",
-    text: "https://github.com/recobalt/prismatix-instructions/blob/main/iosandroid.md"
-  },
-  ios: {
-    title: "iOS",
-    video: "ios.mp4",
-    app: "https://apps.apple.com/ru/app/v2raytun/id6476628951",
-    text: "https://github.com/recobalt/prismatix-instructions/blob/main/iosandroid.md"
-  },
-  keenetic: {
-    title: "Keenetic",
-    video: null,
-    app: "https://github.com/recobalt/prismatix-instructions/blob/main/xkeen.md",
-    text: "https://github.com/recobalt/prismatix-instructions/blob/main/xkeen.md"
-  }
+  pc:       { title:"Windows / macOS / Linux", video:"pc.mp4",        app:"https://github.com/2dust/v2rayN/releases",                              text:"https://github.com/recobalt/prismatix-instructions/blob/main/winlinmac.md" },
+  android:  { title:"Android",                 video:"android.mp4",     app:"https://play.google.com/store/apps/details?id=com.v2raytun.android&hl=ru", text:"https://github.com/recobalt/prismatix-instructions/blob/main/iosandroid.md" },
+  ios:      { title:"iOS",                     video:"ios.mp4",         app:"https://apps.apple.com/ru/app/v2raytun/id6476628951",                     text:"https://github.com/recobalt/prismatix-instructions/blob/main/iosandroid.md" },
+  keenetic: { title:"Keenetic",                video:null,             app:"https://github.com/recobalt/prismatix-instructions/blob/main/xkeen.md",   text:"https://github.com/recobalt/prismatix-instructions/blob/main/xkeen.md"   }
 };
 
 function openModal(key) {
