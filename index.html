@@ -65,22 +65,26 @@
       justify-content: center;
       gap: clamp(16px, 4.5vw, 28px);
       margin-bottom: clamp(24px, 6vw, 40px);
+      flex-wrap: nowrap;
     }
 
     .logo-img {
       width: clamp(64px, 16vw, 96px);
       height: clamp(64px, 16vw, 96px);
       object-fit: contain;
+      flex-shrink: 0;
     }
 
     .logo-text {
-      font-size: clamp(38px, 11vw, 58px);
+      font-size: clamp(32px, 9.5vw, 58px);
       font-weight: 800;
       background: linear-gradient(135deg, var(--accent1), var(--accent2));
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
       line-height: 1;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .subtitle {
@@ -171,7 +175,6 @@
       margin: clamp(64px, 13vw, 110px) 0 clamp(36px, 9vw, 52px);
     }
 
-    /* Устройства */
     .devices {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -206,7 +209,6 @@
       font-weight: 600;
     }
 
-    /* Преимущества */
     .features {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -237,7 +239,6 @@
       font-size: clamp(15px, 3.8vw, 16.5px);
     }
 
-    /* FAQ */
     .faq {
       margin: clamp(90px, 16vw, 140px) 0;
     }
@@ -290,7 +291,6 @@
       padding: 8px 28px 28px;
     }
 
-    /* Modal */
     .modal {
       position: fixed;
       inset: 0;
@@ -365,7 +365,6 @@
       font-size: clamp(14px, 3.5vw, 16px);
     }
 
-    /* Адаптив */
     @media (max-width: 720px) {
       .buttons {
         flex-direction: column;
@@ -497,7 +496,6 @@
 
 <footer>© 2025–2026 Prismatrix VPN</footer>
 
-<!-- Модальное окно -->
 <div class="modal" id="modal">
   <div class="modal-content">
     <div class="close" onclick="closeModal()">← Назад</div>
@@ -571,7 +569,6 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
-// FAQ аккордеон
 document.querySelectorAll('.faq-item').forEach(item => {
   const question = item.querySelector('.faq-question');
   const answer = item.querySelector('.faq-answer');
@@ -579,7 +576,6 @@ document.querySelectorAll('.faq-item').forEach(item => {
   question.addEventListener('click', () => {
     const isOpen = item.classList.contains('active');
 
-    // закрываем все
     document.querySelectorAll('.faq-item').forEach(el => {
       el.classList.remove('active');
       el.querySelector('.faq-answer').style.height = '0';
@@ -592,7 +588,6 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 });
 
-// закрытие модалки по клику на фон
 modal.addEventListener('click', e => {
   if (e.target === modal) closeModal();
 });
