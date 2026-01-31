@@ -158,6 +158,8 @@ main{max-width:1100px;margin:auto;padding:24px}
   font-size:14px;
   line-height:1.65
 }
+.faq-answer ul{padding-left:18px;margin:10px 0}
+.faq-answer li{margin-bottom:6px}
 
 /* MODAL */
 .modal{
@@ -218,6 +220,7 @@ footer{
   font-size:14px
 }
 
+/* MOBILE */
 @media(max-width:600px){
   .logo-text{font-size:32px}
   .modal video{max-height:240px}
@@ -245,9 +248,9 @@ footer{
 <main>
 
 <section class="features">
-  <div class="feature"><h4>🚀 Максимальная скорость</h4><p>Протокол VLESS обеспечивает быстрый интернет.</p></div>
-  <div class="feature"><h4>🔒 Сильное шифрование</h4><p>Защита даже в публичных Wi-Fi сетях.</p></div>
-  <div class="feature"><h4>⚡ Простое подключение</h4><p>Понятные инструкции под каждое устройство.</p></div>
+  <div class="feature"><h4>🚀 Максимальная скорость</h4><p>Протокол VLESS обеспечивает быстрый интернет без задержек.</p></div>
+  <div class="feature"><h4>🔒 Сильное шифрование</h4><p>Ваши данные защищены даже в публичных Wi-Fi.</p></div>
+  <div class="feature"><h4>⚡ Простое подключение</h4><p>Готовые инструкции для любого устройства.</p></div>
 </section>
 
 <section class="step">
@@ -263,10 +266,49 @@ footer{
 <section class="faq">
 <h2>FAQ Prismatrix</h2>
 
-<div class="faq-item"><div class="faq-question">Как подключить VPN?</div><div class="faq-answer">Сначала пополните баланс или активируйте промокод, затем приобретите ключ в боте. Вставьте ключ в приложение и следуйте инструкции.</div></div>
-<div class="faq-item"><div class="faq-question">Как получить месяц бесплатно?</div><div class="faq-answer">Отправьте реферальную ссылку друзьям — за каждых 3 оплативших вы получите месяц VPN.</div></div>
-<div class="faq-item"><div class="faq-question">Как пополнить баланс?</div><div class="faq-answer">Через бота @prismatrixvpn_bot → /start → «Пополнить». Поддерживаются карты РФ, СБП, ЮMoney.</div></div>
-<div class="faq-item"><div class="faq-question">VPN не работает — что делать?</div><div class="faq-answer">Обратитесь в поддержку: @prismatrixsupport_bot.</div></div>
+<div class="faq-item">
+  <div class="faq-question">Как подключить VPN?</div>
+  <div class="faq-answer">
+    <ul>
+      <li>Пополните баланс или активируйте промокод</li>
+      <li>Приобретите VPN-ключ в боте</li>
+      <li>Установите приложение</li>
+      <li>Вставьте ключ и следуйте инструкции</li>
+    </ul>
+    VPN будет готов к использованию 🚀
+  </div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question">Как получить месяц VPN бесплатно?</div>
+  <div class="faq-answer">
+    <ul>
+      <li>Скопируйте реферальную ссылку</li>
+      <li>Отправьте друзьям</li>
+      <li>3 друга оплатят тариф → вы получите месяц VPN 🎁</li>
+    </ul>
+    Без ограничений по количеству.
+  </div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question">Как пополнить баланс?</div>
+  <div class="faq-answer">
+    <ul>
+      <li>Зайдите в @prismatrixvpn_bot</li>
+      <li>Команда /start</li>
+      <li>Раздел «Пополнить»</li>
+      <li>Оплата через ЮKassa</li>
+    </ul>
+  </div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question">Что делать, если VPN не работает?</div>
+  <div class="faq-answer">
+    Обратитесь в поддержку <b>@prismatrixsupport_bot</b> — мы быстро поможем.
+  </div>
+</div>
 
 </section>
 </main>
@@ -290,27 +332,27 @@ footer{
 const data={
   pc:{
     title:"Windows / macOS / Linux",
-    video:"https://www.dropbox.com/scl/fi/4blhloswxmyvc9fdtrr1f/pc.mp4?dl=1",
+    video:"pc.mp4",
     app:"https://github.com/2dust/v2rayN/releases",
-    text:"https://github.com/recobalt/prismatix-instructions/blob/main/winlinmac.md"
+    text:"#"
   },
   android:{
     title:"Android",
-    video:"https://www.dropbox.com/scl/fi/abjgv57ee07xswn2mpk1s/android.mp4?dl=1",
-    app:"https://play.google.com/store/apps/details?id=com.v2raytun.android&hl=ru",
-    text:"https://github.com/recobalt/prismatix-instructions/blob/main/iosandroid.md"
+    video:"android.mp4",
+    app:"https://play.google.com/store/apps/details?id=com.v2raytun.android",
+    text:"#"
   },
   ios:{
     title:"iOS",
-    video:"https://www.dropbox.com/scl/fi/2ux7yiiqwm913d8yu0apn/ios.mp4?dl=1",
-    app:"https://apps.apple.com/ru/app/v2raytun/id6476628951",
-    text:"https://github.com/recobalt/prismatix-instructions/blob/main/iosandroid.md"
+    video:"ios.mp4",
+    app:"https://apps.apple.com/app/v2raytun/id6476628951",
+    text:"#"
   },
   keenetic:{
     title:"Keenetic",
     video:null,
     app:"#",
-    text:"https://github.com/recobalt/prismatix-instructions/blob/main/xkeen.md"
+    text:"#"
   }
 };
 
