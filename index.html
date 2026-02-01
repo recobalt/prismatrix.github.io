@@ -22,30 +22,30 @@
       --gap: clamp(16px, 4.5vw, 28px);
     }
 
-    * {
+    *, *::before, *::after {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
-    html, body {
+    html {
       height: 100%;
+      background: var(--bg);          /* ← Ключевой фикс: фон на html для подложки Safari */
+      overflow-x: hidden;
+    }
+
+    body {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      min-height: 100dvh;
+      margin: 0;
       overflow-x: hidden;
-      /* Важно для iOS — убираем белые/чёрные полосы */
-      padding-top: env(safe-area-inset-top);
-      padding-bottom: env(safe-area-inset-bottom);
-      padding-left: env(safe-area-inset-left);
-      padding-right: env(safe-area-inset-right);
+      -webkit-tap-highlight-color: transparent;
     }
 
-    body {
-      min-height: 100dvh;
-      /* для надёжности */
-      background: var(--bg);
+    body.modal-open {
+      overflow: hidden;
+      height: 100dvh;
     }
 
     body::before {
@@ -313,7 +313,6 @@
       pointer-events: none;
       transition: opacity 0.35s ease;
       z-index: 1000;
-      padding: env(safe-area-inset-top) clamp(16px, 5vw, 32px) env(safe-area-inset-bottom);
     }
 
     .modal.active {
@@ -328,8 +327,9 @@
       border-radius: var(--radius);
       width: 100%;
       max-width: 820px;
-      max-height: calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+      max-height: 90dvh;
       overflow-y: auto;
+      margin: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
       padding: clamp(28px, 7vw, 40px);
     }
 
@@ -371,7 +371,7 @@
 
     footer {
       text-align: center;
-      padding: clamp(60px, 12vw, 100px) 20px clamp(60px, 12vw, 100px);
+      padding: clamp(60px, 12vw, 100px) 20px 80px;
       color: var(--muted);
       font-size: clamp(14px, 3.5vw, 16px);
     }
@@ -569,7 +569,7 @@ function openModal(key) {
   }
 
   modal.classList.add('active');
-  document.body.style.overflow = 'hidden';
+  document.body.classList.add('modal-open');
 }
 
 function closeModal() {
@@ -577,7 +577,7 @@ function closeModal() {
   modalVideo.currentTime = 0;
   modalVideo.src = '';
   modal.classList.remove('active');
-  document.body.style.overflow = '';
+  document.body.classList.remove('modal-open');
 }
 
 document.querySelectorAll('.faq-item').forEach(item => {
