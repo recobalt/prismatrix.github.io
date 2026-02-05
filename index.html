@@ -383,6 +383,12 @@
       }
     }
 
+    @media (max-width: 580px) {
+      .devices {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      }
+    }
+
     @media (max-width: 480px) {
       .devices {
         grid-template-columns: 1fr;
@@ -432,6 +438,10 @@
       <div class="device" onclick="openModal('ios')">
         <img src="ios.png" alt="iOS">
         <h3>iOS</h3>
+      </div>
+      <div class="device" onclick="openModal('androidtv')">
+        <img src="androidtv.png" alt="Android TV">
+        <h3>TV-приставка</h3>
       </div>
       <div class="device" onclick="openModal('keenetic')">
         <img src="keenetic.png" alt="Keenetic">
@@ -534,6 +544,12 @@ const instructions = {
     app: "https://apps.apple.com/ru/app/v2raytun/id6476628951",
     text: "https://github.com/recobalt/prismatix-instructions/blob/main/iosandroid.md"
   },
+  androidtv: {
+    title: "TV-приставка (Android TV)",
+    video: "androidtv.mp4",
+    app: "https://play.google.com/store/apps/details?id=com.happproxy",
+    text: "https://github.com/recobalt/prismatix-instructions/blob/main/tv.md"
+  },
   keenetic: {
     title: "Keenetic",
     video: null,
@@ -595,6 +611,3 @@ modal.addEventListener('click', e => {
 
 </body>
 </html>
-
-
-
